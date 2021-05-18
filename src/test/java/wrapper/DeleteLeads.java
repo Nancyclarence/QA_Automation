@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 public class DeleteLeads extends ProjectspecificClass {
 	@Test
 	public void deleteLead() throws InterruptedException {
-    Login();
+  
     click(locSelector("link", "Leads"));
 	click(locSelector("link", "Find Leads"));
 	click(locSelector("xpath", "//span[contains(text(),'Phone')]"));
@@ -18,6 +18,6 @@ public class DeleteLeads extends ProjectspecificClass {
 	 click(locSelector("link", "Find Leads"));
 	 clearAndType(locSelector("xpath","//input[@name='id']"),"10217");
 	 click(locSelector("xpath", "//button[contains(text(),'Find Leads')]"));
-	 closeApp();
+	
 }
 }

@@ -1,15 +1,23 @@
 package wrapper;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+
 public class ProjectspecificClass extends GenericWrapper {
- public void Login() {
- invokeBrowser("chrome", "http://iarchtaps.com:8080/opentaps/control/main");
-	clearAndType(locSelector("id", "username"),"DemoSalesManager");
-	clearAndType(locSelector("id", "password"),"crmsfa");
+
+@Parameters({"url","uname","pwd"})
+@BeforeMethod
+	public void Login(String url, String username, String password) {
+    invokeBrowser("chrome", url);
+	clearAndType(locSelector("id", "username"),username);
+	clearAndType(locSelector("id", "password"),password);
 	click(locSelector("class", "decorativeSubmit"));
 	click(locSelector("link", "CRM/SFA"));
 
 }
- public void closeApp() {
+@AfterMethod
+   public void closeApp() {
 		driver.close();
 	}
 	 

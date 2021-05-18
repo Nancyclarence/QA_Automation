@@ -4,9 +4,10 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class MergeLead extends ProjectspecificClass {
+	
 	@Test
 	public void mergeLeads() throws InterruptedException {
-		Login();
+	
 		click(locSelector("link", "Leads"));
 		click(locSelector("link", "Merge Leads"));
 		click(locSelector("xpath", "//span[contains(text(),'From Lead')]/following::img[1]"));

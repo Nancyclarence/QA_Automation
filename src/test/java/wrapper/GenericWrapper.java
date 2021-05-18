@@ -1,6 +1,8 @@
 package wrapper;
 
- /** launch browser
+ import java.io.IOException;
+
+/** launch browser
   * Implicit wait
   * maximize window**/
 	
@@ -19,8 +21,9 @@ package wrapper;
 	import org.openqa.selenium.ie.InternetExplorerDriver;
 	import org.openqa.selenium.remote.RemoteWebDriver;
 	import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.DataProvider;
 
-	import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 	public class GenericWrapper {
 
@@ -178,6 +181,12 @@ package wrapper;
 				System.out.println("The element "+ele+" is not visible");
 			}
 			return bReturn;
+		}
+		
+		@DataProvider(name="fetchdata")
+		public String[][] getData() throws IOException {
+			ReadExcel rd=new ReadExcel();
+			 return rd.readExcel();
 		}
 
 		public boolean verifyEnabled(WebElement ele) {

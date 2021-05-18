@@ -3,9 +3,10 @@ package wrapper;
 import org.testng.annotations.Test;
 
 public class EditLeads extends ProjectspecificClass {
+	
 	@Test
 	public void findLead() throws InterruptedException {
-    Login();
+  
 	click(locSelector("link", "Leads"));
 	click(locSelector("link", "Find Leads"));
 	clearAndType(locSelector("xpath", "(//input[@name='firstName'])[3]"),"Nancy");

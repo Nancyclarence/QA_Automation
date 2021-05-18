@@ -8,6 +8,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class P02UseCase {
+	
 	@Test(invocationCount=2,threadPoolSize=2)
 	public  void merge() throws InterruptedException {
 		// TODO Auto-generated method stub
