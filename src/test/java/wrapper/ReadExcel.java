@@ -9,11 +9,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ReadExcel {
 
-	public  String[][] readExcel() throws IOException {
+	public  String[][] readExcel(String fileName) throws IOException {
 		// TODO Auto-generated method stub
 		
 		//File Path
-		XSSFWorkbook wb= new XSSFWorkbook("./data/TC001.xlsx");
+		XSSFWorkbook wb= new XSSFWorkbook("./data/"+fileName+".xlsx");
 		
 		//get sheet
 		XSSFSheet sh= wb.getSheetAt(0);

@@ -6,7 +6,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LearnDataProvider extends ProjectspecificClass {
-@Test(dataProvider="fetchdata")
+
+	@Test(dataProvider="fetchdata")
 	public void createLead(String cname, String fname,String lname) {
 		
 		click(locSelector("link", "Leads"));

@@ -1,6 +1,7 @@
 package classWork;
 
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -47,11 +48,17 @@ public class LearnAnnotations {
 		System.out.println("AfterTest");
 	}
      
-	@Test
-	public void Test1() {
-		System.out.println("Test1");
-	
-}
+   @Test(dataProvider = "getData")
+	public void test1(String data) {
+		System.out.println("Test1: "+data);
+	}
 	
 
+	@DataProvider
+	public String[][] getData() {
+		System.out.println("DataProvider");
+		String[][] data = new String[1][1];
+		data[0][0] = "xyz";
+		return data;
+	}
 }

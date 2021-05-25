@@ -24,10 +24,13 @@ package wrapper;
 import org.testng.annotations.DataProvider;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utils.Reports;
 
-	public class GenericWrapper {
+	public class GenericWrapper extends Reports {
 
+		
 		public RemoteWebDriver driver;
+		public String dataSheet;
 
 		public void invokeBrowser(String browser, String url) {
 			if(browser.equalsIgnoreCase("chrome")) {
@@ -43,7 +46,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 			driver.navigate().to(url);
 			driver.manage().window().maximize();
 			//.manage().timeouts().implicitlyWait(Duration.getSeconds(), 3000));
-			System.out.println("The Browser "+browser+" launched Successfully");
+			reportStep("The Browser "+browser+" launched Successfully","PASS");
 		}
 
 		public WebElement locSelector(String selectorType, String selValue) {
@@ -77,7 +80,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 		public void click(WebElement ele) {
 			String text = ele.getText();
 			ele.click();
-			System.out.println("The Element "+text+" clicked"); 
+			reportStep("The Element "+text+" clicked","PASS"); 
 		}
 
 		public void clickWithNoSnap(WebElement ele) {	
@@ -98,7 +101,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 		public void clearAndType(WebElement ele, String data) {
 			ele.clear();
 			ele.sendKeys(data);
-			System.out.println("The Data :"+data+" entered Successfully");
+			reportStep("The Data :"+data+" entered Successfully","PASS");
 		}
 
 		public String getElementText(WebElement ele) {
@@ -186,7 +189,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 		@DataProvider(name="fetchdata")
 		public String[][] getData() throws IOException {
 			ReadExcel rd=new ReadExcel();
-			 return rd.readExcel();
+			 return rd.readExcel(dataSheet);
 		}
 
 		public boolean verifyEnabled(WebElement ele) {

@@ -3,11 +3,22 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="classWork.DependsOnMethod">
+      <class name="wrapper.CreateLeads">
         <methods>
-          <include name="CreateLead"/>
+          <include name="beforeSuite"/>
+          <include name="afterTest"/>
+          <include name="login"/>
+          <include name="setData"/>
+          <include name="afterClass"/>
+          <include name="StartReport"/>
+          <include name="StartTest"/>
+          <include name="afterSuite"/>
+          <include name="createLead"/>
+          <include name="closeApp"/>
+          <include name="EndReport"/>
+          <include name="beforeClass"/>
         </methods>
-      </class> <!-- classWork.DependsOnMethod -->
+      </class> <!-- wrapper.CreateLeads -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
